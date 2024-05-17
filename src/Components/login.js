@@ -12,7 +12,7 @@ const Login = () => {
     if (success) {
       alert('Login successful');
     } else {
-      alert('Invalid credentials');
+      alert('Invalid login again');
     }
   };
 
