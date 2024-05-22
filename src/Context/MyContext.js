@@ -7,7 +7,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       // Handle response
       console.log(response.data);
       return response.data;
@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
 
   const signup = async (username, password) => {
     try {
-      await axios.post('http://localhost:5000/signup', { username, password });
+      await axios.post('http://localhost:5000/api/auth/register', { username, password });
       setUser({ username });
     } catch (error) {
       console.error(error);
