@@ -9,11 +9,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(username, password);
-    if (success) {
-      alert('Login successful');
-    } else {
-      alert('Invalid login again');
-    }
+    console.log(success)
   };
 
   return (

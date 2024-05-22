@@ -8,11 +8,12 @@ const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       const response = await axios.post('http://localhost:5000/login', { username, password });
-      setUser({ username: response.data.username });
-      return true;
+      // Handle response
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       console.error(error);
-      return false;
+      return null;
     }
   };
 
