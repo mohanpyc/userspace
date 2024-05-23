@@ -6,8 +6,11 @@ const Home = () => {
 
   return (
     <div>
+      {console.log(user,'insider return')}
       {user ? (
+        
         <div>
+          
           <h2>Welcome, {user.username}!</h2>
           <button onClick={logout}>Logout</button>
         </div>

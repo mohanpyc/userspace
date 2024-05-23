@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
       const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       // Handle response
       console.log(response.data);
+      setUser(response.data)
       return response.data;
     } catch (error) {
       console.error(error);
