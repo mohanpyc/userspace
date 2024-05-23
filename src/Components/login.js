@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from  '../Context/MyContext';
 import { useNavigate } from 'react-router-dom';
+import { Button, Input } from '../MUIComponents';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -21,13 +22,13 @@ const Login = () => {
       <h2>Login</h2>
       <div>
         <label>Username: </label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
       <div>
         <label>Password: </label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
-      <button type="submit">Login</button>
+      <Button type="submit">Login</Button>
     </form>
   );
 };
