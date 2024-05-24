@@ -1,7 +1,7 @@
-import { makeStyles } from "@mui/styles";
+import styled from '@emotion/styled';
 
 
-export const LoginPageStyles = makeStyles((theme)=>({
+export const LoginPageStyles = styled((theme)=>({
 
     Grid:{
         display:'flex',
