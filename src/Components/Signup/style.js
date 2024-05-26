@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {  Grid , Card, CardActions, CardContent } from '../../MUIComponents';
+import {  Grid, Card, CardActions, CardContent } from '../../MUIComponents';
 
 export const CustomGrid = styled(Grid)(({ theme }) => ({
   display: 'flex',

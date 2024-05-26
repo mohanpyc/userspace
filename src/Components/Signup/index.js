@@ -1,49 +1,49 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../Context/MyContext';
-import { useNavigate } from 'react-router-dom';
 import { Button, Grid, Input } from '../../MUIComponents';
 import { CustomGrid, CustomCard, CustomCardContent, CustomCardActions } from './style';
+import { useNavigate } from 'react-router';
 
-
-const Login = () => {
+const Signup = () => {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email,setEmail] = useState('');
-
-  const { login, signup } = useContext(AuthContext);
+  const { signup } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    const success = await login(username, password);
-    if (success) {
-      navigate('/home'); // Replace '/home' with your desired route
-    }
+    await signup(username, password, email);
+    navigate('/login');
   };
 
-  const navigateSignup = () => {
-    navigate('/signup');
+  const handleGoBack = () => {
+    navigate('/login')
   }
 
-
-  return <CustomGrid>
+  return (
+    <CustomGrid>
     <CustomCard>
       <CustomCardContent>
         <Grid container direction="column" alignItems="center" spacing={2}>
           <Grid item>
-            <Input placeholder="Username"  onChange={(e)=>setUsername(e.target.value)}/>
+            <Input placeholder="Username" onChange={(e)=>setUsername(e.target.value)} />
           </Grid>
           <Grid item>
-            <Input placeholder="Password"   onChange={(e)=>setPassword(e.target.value)}/>
+          <Input placeholder="Password" onChange={(e)=>setPassword(e.target.value)} />
+          </Grid>
+          <Grid item>
+            <Input placeholder="email-id"  onChange={(e)=>setEmail(e.target.value)}/>
           </Grid>
         </Grid>
       </CustomCardContent>
       <CustomCardActions >
-        <Button onClick={handleSubmit}>Login</Button>
-        <Button>Forgot Password</Button>
-        <Button onClick={navigateSignup}>Signup</Button>
+        <Button onClick={handleSubmit}>Signup</Button>
+        <Button onClick={handleGoBack}>Go Back</Button>
       </CustomCardActions>
     </CustomCard>
   </CustomGrid>
+  );
 };
 
-export default Login;
+export default Signup;

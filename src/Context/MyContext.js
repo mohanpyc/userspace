@@ -9,8 +9,8 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       // Handle response
-      console.log(response.data);
-      setUser(response.data)
+      console.log(response.data,'context login');
+      setUser(response.data.user)
       return response.data;
     } catch (error) {
       console.error(error);
@@ -18,10 +18,9 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = async (username, password) => {
+  const signup = async (username, password, email) => {
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, password });
-      setUser({ username });
+      await axios.post('http://localhost:5000/api/auth/register', { username, password , email});
     } catch (error) {
       console.error(error);
     }
